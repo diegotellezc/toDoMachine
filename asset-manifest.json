@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/diegotellezc/toDoMachine/static/css/main.dddefa25.css",
+    "main.js": "/diegotellezc/toDoMachine/static/js/main.e654452d.js",
+    "index.html": "/diegotellezc/toDoMachine/index.html",
+    "static/media/delete.svg": "/diegotellezc/toDoMachine/static/media/delete.7018c4465589031bd51c8efbe21df9ca.svg",
+    "static/media/check.svg": "/diegotellezc/toDoMachine/static/media/check.e9a948bba52a34123d2ed7aeda0ea495.svg",
+    "main.dddefa25.css.map": "/diegotellezc/toDoMachine/static/css/main.dddefa25.css.map",
+    "main.e654452d.js.map": "/diegotellezc/toDoMachine/static/js/main.e654452d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dddefa25.css",
+    "static/js/main.e654452d.js"
+  ]
+}
