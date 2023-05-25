@@ -24,8 +24,8 @@
   justify-content: center;
   align-items: center;
   border-radius: 50px;
-  height: 48px;
-  width: 48px;
+  height: 38px;
+  width: 38px;
 }
 .LoadingTodo-completeIcon {
   position: absolute;
@@ -33,8 +33,8 @@
 }
 .LoadingTodo-deleteIcon {
   position: absolute;
-  top: -24px;
-  right: 0;
+  top: -18px;
+  right: 8px;
 }
 
 
