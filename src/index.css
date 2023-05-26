@@ -14,7 +14,7 @@ body {
 }
 
 .app-container {
-  background-image: url("https://images.pexels.com/photos/32237/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-image: url("https://images.pexels.com/photos/247676/pexels-photo-247676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
   background-repeat: none;
   background-size: cover;
   background-position: center;
@@ -29,10 +29,25 @@ body {
 .todo-container {
   background-color: rgba(0, 0, 0, 0.7);
   width: 90%;
-  max-width: 600px;
+  max-width: 800px;
   height: 80%;
   border: 2px solid white;
   border-radius: 6px;
   overflow-y: scroll;
   position: relative;
+}
+
+
+::-webkit-scrollbar {
+  width: 6px; /* Anchura de la barra de desplazamiento */
+}
+
+/* Personaliza el color de la barra de desplazamiento */
+::-webkit-scrollbar-thumb {
+  background: #61DAFA;
+}
+
+/* Personaliza el manejar de la barra de desplazamiento */
+::-webkit-scrollbar-thumb:hover {
+  background: #2c9dbc;
 }

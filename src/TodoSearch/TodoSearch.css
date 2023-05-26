@@ -4,10 +4,10 @@
   border: 2px solid #202329;
   display: block;
   margin: auto;
-  height: 64px;
-  width: calc(100% - 112px);
-  font-size: 24px;
-  text-align: center;
+  height: 46px;
+  width: calc(100% - 10rem);
+  max-width: 26rem;
+  font-size: 22px;
   font-family: 'Montserrat';
   font-weight: 400;
   color: #1E1E1F;
@@ -19,7 +19,8 @@
   color: #A5A5A5;
   font-family: 'Montserrat';
   font-weight: 400;
-  font-size: large;
+  font-size: medium;
+  padding-left: 12px;
 }
 
 .TodoSearch:focus {
@@ -28,6 +29,6 @@
 
 @media (min-width: 460px) {
   .TodoSearch::placeholder {
-    font-size: x-large;
+    font-size: large;
   }
 }

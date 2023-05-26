@@ -4,4 +4,13 @@
   list-style: none;
   color: black;
   position: relative;
+  display: grid;
+  overflow-y: auto;
+}
+
+@media (min-width: 800px) {
+  .TodoList {
+    grid-template-columns: 1fr 1fr; /* Define las dos columnas con el mismo ancho */
+    grid-gap: 10px;
+  }
 }

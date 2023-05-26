@@ -26,6 +26,7 @@ function AppUI() {
     <>
       <div className="app-container">
         <div className="todo-container">
+          
           <TodoCounter />
           <TodoSearch />
 
@@ -53,10 +54,13 @@ function AppUI() {
               />
             ))}
           </TodoList>
+
           
           <CreateTodoButton
             setOpenModal={setOpenModal}
           />
+          
+          
 
           {openModal && (
             <Modal>

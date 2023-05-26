@@ -1,5 +1,5 @@
 .TodoTitle {
-  font-size: 28px;
+  font-size: 26px;
   text-align: center;
   margin: 0;
   padding: 36px 0 8px;
@@ -9,15 +9,32 @@
 }
 
 .TodoCounter {
-  font-size: 24px;
+  font-size: 20px;
   text-align: center;
   margin: 0;
-  padding: 12px 0 24px;
+  padding: 12px 4px 24px;
   font-weight: normal;
+  height: 8%;
 }
 
 .TodoCounter span {
   font-weight: bold;
   font-size: 32px;
   color: #61DAFA;
+}
+
+@media (min-width: 400px) {
+  .TodoTitle {
+    font-size: 36px;
+  }
+  
+}
+
+@media (min-width: 800px) {
+  .TodoTitle {
+    font-size: 46px;
+  }
+  .TodoCounter {
+    font-size: 24px;
+  }
 }
