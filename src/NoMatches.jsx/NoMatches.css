@@ -1,0 +1,11 @@
+.nomatches-container {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    grid-column: 1 / span 2;
+    margin-top: 14px;
+    font-size: large;
+}

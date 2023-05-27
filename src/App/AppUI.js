@@ -9,6 +9,7 @@ import { EmptyTodos } from '../EmptyTodos';
 import { CreateTodoButton } from '../CreateTodoButton';
 import { TodoForm } from '../TodoForm';
 import { Modal } from '../Modal';
+import { NoMatches } from '../NoMatches.jsx';
 import { TodoContext } from '../TodoContext';
 
 function AppUI() {
@@ -20,6 +21,7 @@ function AppUI() {
     deleteTodo,
     openModal,
     setOpenModal,
+    searchValue
   } = React.useContext(TodoContext);
   
   return (
@@ -43,7 +45,8 @@ function AppUI() {
               </>
             )}
             {error && <TodosError/>}
-            {(!loading && searchedTodos.length === 0) && <EmptyTodos />}
+            {(!loading && searchedTodos.length === 0 && searchValue) && <NoMatches />}
+            {(!loading && searchedTodos.length === 0 && !searchValue) && <EmptyTodos />}
 
             {searchedTodos.map(todo => (
               <TodoItem
