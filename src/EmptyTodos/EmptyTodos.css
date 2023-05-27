@@ -1,0 +1,38 @@
+.empty-container {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    grid-column: 1 / span 2;
+}
+
+.empty-text-mobile {
+    text-align: center;
+    padding: 0 12px;
+    margin-top: 32px;
+    font-size: large;
+}
+
+.empty-text-desktop {
+    display: none;
+}
+
+.plus-icon {
+    color:#61DAFA;
+}
+
+@media (min-width: 1400px) {
+    .empty-text-mobile {
+        display: none;
+    }
+
+    .empty-text-desktop {
+        display: block;
+        text-align: center;
+        padding: 0 12px;
+        margin-top: 32px;
+        font-size: large;
+    }
+}
