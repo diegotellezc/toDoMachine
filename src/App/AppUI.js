@@ -25,6 +25,7 @@ function AppUI() {
   return (
     <>
       <div className="app-container">
+
         <div className="todo-container">
           
           <TodoCounter />
@@ -68,6 +69,11 @@ function AppUI() {
             </Modal>
           )}
         </div>
+
+        <div className='big-form-container'>
+          <TodoForm />
+        </div>
+
       </div>
     </>
   );

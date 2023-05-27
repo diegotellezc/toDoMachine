@@ -13,10 +13,12 @@ function TodoForm() {
     event.preventDefault();
     addTodo(newTodoValue);
     setOpenModal(false);
+    setNewTodoValue("")
   };
 
   const onCancel = () => {
     setOpenModal(false);
+    setNewTodoValue("")
   };
 
   const onChange = (event) => {
