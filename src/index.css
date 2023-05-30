@@ -29,7 +29,7 @@ body {
 .todo-container {
   background-color: rgba(0, 0, 0, 0.7);
   width: 90%;
-  max-width: 800px;
+  max-width: 850px;
   height: 80%;
   border: 2px solid white;
   border-radius: 6px;
@@ -56,8 +56,37 @@ body {
   background: #2c9dbc;
 }
 
+.info-container {
+  color: white;
+  position: fixed;
+  bottom: 30px;
+  left: 22px;
+  font-size: 14px;
+}
+
+.info-container a {
+  color: #61DAFA;
+  text-decoration: none;
+}
+
+.info-container a:hover {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
 @media (min-width: 1400px) {
   .big-form-container {
     display: block;
+  }
+
+  .info-container {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-height: 700px) {
+  .info-container {
+    bottom: 4px;
   }
 }

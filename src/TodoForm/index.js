@@ -29,6 +29,7 @@ function TodoForm() {
     <form onSubmit={onSubmit}>
       <label>Add a new To-Do</label>
       <textarea
+        required
         placeholder="Type here"
         value={newTodoValue}
         onChange={onChange}

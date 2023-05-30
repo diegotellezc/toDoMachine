@@ -28,6 +28,10 @@ function AppUI() {
     <>
       <div className="app-container">
 
+        <div className='big-form-container'>
+          <TodoForm />
+        </div>
+
         <div className="todo-container">
           
           <TodoCounter />
@@ -73,9 +77,12 @@ function AppUI() {
           )}
         </div>
 
-        <div className='big-form-container'>
-          <TodoForm />
+        <div className='info-container'>
+          <p>Created by 
+            <a href="https://diegotellez-portfolio.netlify.app/" target='_blank'> @diegotellezc</a>
+          </p>
         </div>
+        
 
       </div>
     </>
