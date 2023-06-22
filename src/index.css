@@ -80,8 +80,7 @@ body {
   }
 
   .info-container {
-    left: 50%;
-    transform: translateX(-50%);
+    left: 60px;
   }
 }
 
