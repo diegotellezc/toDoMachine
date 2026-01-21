@@ -4,8 +4,8 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-top: 24px;
-  padding-inline: 10px;
+  margin-top: 14px;
+  padding-left: 5px;
   box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.15);
   border-radius: 10px;
   height: 80px;
@@ -16,10 +16,10 @@
 
 .TodoItem-p {
   margin: 0;
-  width: calc(100% - 120px);
-  font-size: 14px;
+  width: calc(100% - 60px);
+  font-size: 15px;
   font-weight: 500;
-  line-height: 1.4;
+  line-height: 1.25;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

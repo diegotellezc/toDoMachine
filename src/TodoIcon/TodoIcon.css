@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   height: 48px;
-  width: 48px;
+  width: 40px;
   font-size: 24px;
   font-weight: bold;
 }
@@ -29,8 +29,8 @@
 }
 
 .Icon-svg {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
 }
 
 .Icon-container-check:hover .Icon-svg {

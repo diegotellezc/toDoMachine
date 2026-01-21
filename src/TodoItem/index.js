@@ -4,7 +4,7 @@ import React from 'react';
 import './TodoItem.css';
 
 function TodoItem(props) {
-  const isLongText = props.text.length > 80;
+  const isLongText = props.text.length > 92;
   const textRef = React.useRef(null);
 
   const handleMouseEnter = (e) => {
