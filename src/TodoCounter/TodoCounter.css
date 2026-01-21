@@ -14,7 +14,7 @@
   margin: 0;
   padding: 12px 4px;
   font-weight: normal;
-  height: 8%;
+  flex: 1;
 }
 
 .TodoCounter span {

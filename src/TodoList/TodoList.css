@@ -10,7 +10,7 @@
 
 @media (min-width: 800px) {
   .TodoList {
-    grid-template-columns: 1fr 1fr; /* Define las dos columnas con el mismo ancho */
+    grid-template-columns: 1fr 1fr 1fr; /* Define las tres columnas con el mismo ancho */
     grid-gap: 10px;
   }
 }

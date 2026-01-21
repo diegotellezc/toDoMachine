@@ -11,9 +11,11 @@ function TodoCounter() {
   return (
     <>
     <h1 className="TodoTitle">TODO Machine</h1>
-    <h2 className="TodoCounter">
-      You have completed <span>{completedTodos}</span> of <span>{totalTodos}</span> TO-DOs
-    </h2>
+    <div className="header-row">
+      <h2 className="TodoCounter">
+        You have completed <span>{completedTodos}</span> of <span>{totalTodos}</span> TO-DOs
+      </h2>
+    </div>
     </>
   );
 }

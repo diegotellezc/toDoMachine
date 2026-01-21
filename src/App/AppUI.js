@@ -1,6 +1,4 @@
 import React from 'react';
-import { TodoCounter } from '../TodoCounter';
-import { TodoSearch } from '../TodoSearch';
 import { TodoList } from '../TodoList';
 import { TodoItem } from '../TodoItem';
 import { TodosLoading } from '../TodosLoading';
@@ -34,8 +32,7 @@ function AppUI() {
 
         <div className="todo-container">
           
-          <TodoCounter />
-          <TodoSearch />
+          <h1 className="TodoTitle">TODO Machine</h1>
 
           <TodoList>
             {loading && (
