@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/toDoMachine/static/css/main.b45c5954.css",
-    "main.js": "/toDoMachine/static/js/main.2669095e.js",
+    "main.css": "/toDoMachine/static/css/main.f08ffd77.css",
+    "main.js": "/toDoMachine/static/js/main.7a15a4aa.js",
     "index.html": "/toDoMachine/index.html",
-    "static/media/delete.svg": "/toDoMachine/static/media/delete.7018c4465589031bd51c8efbe21df9ca.svg",
-    "static/media/check.svg": "/toDoMachine/static/media/check.e9a948bba52a34123d2ed7aeda0ea495.svg",
-    "main.b45c5954.css.map": "/toDoMachine/static/css/main.b45c5954.css.map",
-    "main.2669095e.js.map": "/toDoMachine/static/js/main.2669095e.js.map"
+    "static/media/delete.svg": "/toDoMachine/static/media/delete.f8e04b980f4a347b447ca1bb82768b46.svg",
+    "static/media/check.svg": "/toDoMachine/static/media/check.fa4fb594b16385306a04b9c87c0feb55.svg",
+    "main.f08ffd77.css.map": "/toDoMachine/static/css/main.f08ffd77.css.map",
+    "main.7a15a4aa.js.map": "/toDoMachine/static/js/main.7a15a4aa.js.map"
   },
   "entrypoints": [
-    "static/css/main.b45c5954.css",
-    "static/js/main.2669095e.js"
+    "static/css/main.f08ffd77.css",
+    "static/js/main.7a15a4aa.js"
   ]
 }
