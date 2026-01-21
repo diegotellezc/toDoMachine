@@ -1,26 +1,77 @@
 import React from 'react';
-import { TodoList } from '../TodoList';
-import { TodoItem } from '../TodoItem';
-import { TodosLoading } from '../TodosLoading';
-import { TodosError } from '../TodosError';
-import { EmptyTodos } from '../EmptyTodos';
+import { DndContext, DragOverlay, closestCorners, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
+import { arrayMove } from '@dnd-kit/sortable';
+import { TodoSection } from '../TodoSection';
 import { CreateTodoButton } from '../CreateTodoButton';
 import { TodoForm } from '../TodoForm';
 import { Modal } from '../Modal';
-import { NoMatches } from '../NoMatches.jsx';
 import { TodoContext } from '../TodoContext';
+import { TodoItem } from '../TodoItem';
 
 function AppUI() {
   const {
     loading,
     error,
-    searchedTodos,
-    completeTodo,
+    personalTodos,
+    laboralTodos,
+    todos,
+    togglePriority,
     deleteTodo,
+    reorderTodos,
+    changeTodoCategory,
     openModal,
     setOpenModal,
-    searchValue
   } = React.useContext(TodoContext);
+
+  const [activeId, setActiveId] = React.useState(null);
+
+  const sensors = useSensors(
+    useSensor(PointerSensor, {
+      activationConstraint: {
+        distance: 8,
+      },
+    })
+  );
+
+  const handleDragStart = (event) => {
+    setActiveId(event.active.id);
+  };
+
+  const handleDragEnd = (event) => {
+    const { active, over } = event;
+
+    if (!over) {
+      setActiveId(null);
+      return;
+    }
+
+    const activeId = active.id;
+    const overId = over.id;
+
+    // Si se suelta sobre una categoría diferente
+    if (overId === 'personal' || overId === 'laboral') {
+      changeTodoCategory(activeId, overId);
+      setActiveId(null);
+      return;
+    }
+
+    // Si se reordena dentro de la misma lista
+    if (activeId !== overId) {
+      const oldIndex = todos.findIndex(todo => todo.id === activeId);
+      const newIndex = todos.findIndex(todo => todo.id === overId);
+      
+      const newTodos = arrayMove(todos, oldIndex, newIndex);
+      reorderTodos(newTodos);
+    }
+
+    setActiveId(null);
+  };
+
+  const handleDragCancel = () => {
+    setActiveId(null);
+  };
+
+  const activeTodo = activeId ? todos.find(todo => todo.id === activeId) : null;
   
   return (
     <>
@@ -32,33 +83,44 @@ function AppUI() {
 
         <div className="todo-container">
           
-          <h1 className="TodoTitle">TODO Machine</h1>
+          <h1 className="TodoTitle">ToDo Machine</h1>
 
-          <TodoList>
-            {loading && (
-              <>
-                <TodosLoading />
-                <TodosLoading />
-                <TodosLoading />
-                <TodosLoading />
-                <TodosLoading />
-                <TodosLoading />
-              </>
-            )}
-            {error && <TodosError/>}
-            {(!loading && searchedTodos.length === 0 && searchValue) && <NoMatches />}
-            {(!loading && searchedTodos.length === 0 && !searchValue) && <EmptyTodos />}
+          <DndContext
+            sensors={sensors}
+            collisionDetection={closestCorners}
+            onDragStart={handleDragStart}
+            onDragEnd={handleDragEnd}
+            onDragCancel={handleDragCancel}
+          >
+            <TodoSection
+              title="Personales"
+              category="personal"
+              todos={personalTodos}
+              loading={loading}
+              error={error}
+              togglePriority={togglePriority}
+              deleteTodo={deleteTodo}
+            />
 
-            {searchedTodos.map(todo => (
-              <TodoItem
-                key={todo.text}
-                text={todo.text}
-                completed={todo.completed}
-                onComplete={() => completeTodo(todo.text)}
-                onDelete={() => deleteTodo(todo.text)}
-              />
-            ))}
-          </TodoList>
+            <TodoSection
+              title="Laborales"
+              category="laboral"
+              todos={laboralTodos}
+              loading={loading}
+              error={error}
+              togglePriority={togglePriority}
+              deleteTodo={deleteTodo}
+            />
+
+            <DragOverlay>
+              {activeTodo ? (
+                <TodoItem
+                  text={activeTodo.text}
+                  priority={activeTodo.priority}
+                />
+              ) : null}
+            </DragOverlay>
+          </DndContext>
 
           
           <CreateTodoButton

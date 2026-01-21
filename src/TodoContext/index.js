@@ -13,8 +13,24 @@ function TodoProvider({ children }) {
   const [searchValue, setSearchValue] = React.useState('');
   const [openModal, setOpenModal] = React.useState(false);
 
+  // Migración: Agregar IDs a todos existentes que no los tengan
+  React.useEffect(() => {
+    if (!loading && todos.length > 0) {
+      const needsMigration = todos.some(todo => !todo.id);
+      if (needsMigration) {
+        const migratedTodos = todos.map((todo, index) => ({
+          ...todo,
+          id: todo.id || `${Date.now()}-${index}`,
+          category: todo.category || 'laboral',
+          priority: todo.priority || false
+        }));
+        saveTodos(migratedTodos);
+      }
+    }
+  }, [loading]);
+
   const completedTodos = todos.filter(
-    todo => !!todo.completed
+    todo => !!todo.priority
   ).length;
   const totalTodos = todos.length;
 
@@ -26,36 +42,48 @@ function TodoProvider({ children }) {
     }
   );
 
-  const addTodo = (text) => {
+  const personalTodos = searchedTodos.filter(todo => todo.category === 'personal');
+  const laboralTodos = searchedTodos.filter(todo => todo.category === 'laboral');
+
+  const addTodo = (text, category = 'laboral') => {
     const newTodos = [...todos];
     newTodos.push({
+      id: Date.now().toString(),
       text,
-      completed: false,
+      priority: false,
+      category,
     });
     saveTodos(newTodos);
   };
 
-  const completeTodo = (text) => {
+  const togglePriority = (id) => {
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex(
-      (todo) => todo.text === text
+      (todo) => todo.id === id
     );
     
-    if(newTodos[todoIndex].completed){
-      newTodos[todoIndex].completed = false;
-    } else {
-      newTodos[todoIndex].completed = true;
-    }
+    newTodos[todoIndex].priority = !newTodos[todoIndex].priority;
     
     saveTodos(newTodos);
   };
 
-  const deleteTodo = (text) => {
+  const deleteTodo = (id) => {
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex(
-      (todo) => todo.text === text
+      (todo) => todo.id === id
     );
     newTodos.splice(todoIndex, 1);
+    saveTodos(newTodos);
+  };
+
+  const reorderTodos = (updatedTodos) => {
+    saveTodos(updatedTodos);
+  };
+
+  const changeTodoCategory = (todoId, newCategory) => {
+    const newTodos = todos.map(todo => 
+      todo.id === todoId ? { ...todo, category: newCategory } : todo
+    );
     saveTodos(newTodos);
   };
   
@@ -68,9 +96,14 @@ function TodoProvider({ children }) {
       searchValue,
       setSearchValue,
       searchedTodos,
+      personalTodos,
+      laboralTodos,
+      todos,
       addTodo,
-      completeTodo,
+      togglePriority,
       deleteTodo,
+      reorderTodos,
+      changeTodoCategory,
       openModal,
       setOpenModal,
     }}>

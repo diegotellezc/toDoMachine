@@ -4,8 +4,8 @@ import { TodoIcon } from './';
 function CompleteIcon({ completed, onComplete }) {
   return (
     <TodoIcon
-      type="check"
-      color={completed ? '#16e81d' : 'gray'}
+      type="priority"
+      color={completed ? '#ff4444' : 'gray'}
       onClick={onComplete}
     />
   );
